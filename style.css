@@ -1,0 +1,923 @@
+/* ========================================================
+   KopDes Merah Putih - Style Sheet
+   Website Statis 1 Tampilan (Single Viewport 100vh)
+   ======================================================== */
+
+:root {
+  --primary-teal: #144240;       /* Dark teal */
+  --primary-teal-dark: #0a1f1e;
+  --accent-purple: #9061f9;     
+  --accent-red: #dc2626;        
+  --accent-fire: #ea580c;       
+  --accent-amber: #f59e0b;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+  
+  --bg-left: #ffffff;
+  --text-main: #0f2c2a;
+  --text-muted: #52646d;
+  --border-light: #e2e8f0;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 25px -5px rgba(15, 44, 42, 0.08), 0 8px 10px -6px rgba(15, 44, 42, 0.04);
+  --shadow-float: 0 18px 30px -4px rgba(0, 0, 0, 0.35), 0 8px 12px -6px rgba(0, 0, 0, 0.25);
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--primary-teal-dark);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================================
+   SPLIT SCREEN HERO WRAPPER (1 TAMPILAN 100VH)
+   ======================================================== */
+.hero-wrapper {
+  display: flex;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-left);
+}
+
+/* --------------------------------------------------------
+   LEFT PANEL (White / Content Side)
+   -------------------------------------------------------- */
+.panel-left {
+  flex: 1.08;
+  background: #ffffff;
+  padding: 2.25rem 3.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+/* Header & Brand */
+.left-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  cursor: default;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.brand-icon .flag-red {
+  background-color: #e11d48;
+  flex: 1;
+}
+
+.brand-icon .flag-white {
+  background-color: #ffffff;
+  flex: 1;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary-teal);
+}
+
+.brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-red);
+}
+
+.badge-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #b91c1c;
+  background-color: #fef2f2;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  border: 1px solid #fecaca;
+  cursor: default;
+}
+
+/* Main Left Body */
+.left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  max-width: 660px;
+  margin: auto 0;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+  background-color: #fff1f2;
+  color: #be123c;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid #fecdd3;
+  cursor: default;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e11d48;
+  position: relative;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(225, 29, 72, 0.4);
+  animation: pulseAnim 2s infinite ease-out;
+}
+
+@keyframes pulseAnim {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.main-heading {
+  font-size: 2.55rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--primary-teal);
+}
+
+.text-highlight {
+  display: inline-block;
+  background: linear-gradient(120deg, #dc2626 0%, #b91c1c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------
+   KARTU BGN & KORUPSI MBG (PENGGANTI FORMULIR)
+   -------------------------------------------------------- */
+.bgn-card {
+  background: #ffffff;
+  border: 1.5px solid #fecaca;
+  border-radius: 16px;
+  padding: 1.25rem 1.45rem;
+  box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  cursor: default;
+}
+
+.bgn-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.bgn-header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.badge-alert-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #b91c1c;
+  background-color: #fee2e2;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f2c2a;
+  letter-spacing: -0.01em;
+}
+
+.bgn-budget-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+/* Grid Layout: Profil Ketua BGN di Kiri, Bukti Porsi di Kanan */
+.bgn-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1rem;
+}
+
+/* Box Profil Ketua BGN */
+.bgn-profile-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.85rem;
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.bgn-photo-frame {
+  position: relative;
+  width: 72px;
+  height: 88px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #dc2626;
+  flex-shrink: 0;
+  background: #0f172a;
+}
+
+.bgn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bgn-role-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.55rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 1px 0;
+  letter-spacing: 0.05em;
+}
+
+.bgn-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.bgn-name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.bgn-role-sub {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #dc2626;
+}
+
+.bgn-critique {
+  font-size: 0.72rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-top: 0.15rem;
+  font-style: italic;
+}
+
+/* Kolom Bukti Foto Porsi & Rekanan */
+.bgn-evidence-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.evidence-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.45rem 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.evidence-thumb {
+  position: relative;
+  width: 58px;
+  height: 48px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid #cbd5e1;
+  flex-shrink: 0;
+}
+
+.thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.evidence-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 0.48rem;
+  font-weight: 900;
+  text-align: center;
+  color: #ffffff;
+  padding: 1px 0;
+}
+
+.tag-red { background: rgba(220, 38, 38, 0.95); }
+.tag-amber { background: rgba(217, 119, 6, 0.95); }
+
+.evidence-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ev-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.ev-desc {
+  font-size: 0.68rem;
+  color: #64748b;
+  line-height: 1.25;
+}
+
+/* Rantai Kebocoran BGN */
+.bgn-leak-strip {
+  background: #fff1f2;
+  border: 1px dashed #fca5a5;
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.leak-step {
+  display: flex;
+  flex-direction: column;
+}
+
+.leak-lbl {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.val-green { font-size: 0.82rem; color: #059669; font-weight: 800; }
+.val-red { font-size: 0.82rem; color: #dc2626; font-weight: 800; }
+.val-amber { font-size: 0.82rem; color: #d97706; font-weight: 800; }
+
+.leak-arrow {
+  color: #94a3b8;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* Trust footer */
+.trust-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  padding-top: 0.5rem;
+  cursor: default;
+}
+
+.trust-footer .divider {
+  color: #cbd5e1;
+}
+
+/* --------------------------------------------------------
+   RIGHT PANEL: BURNING KALIMANTAN FOREST BACKGROUND (STATIC)
+   -------------------------------------------------------- */
+.panel-right.panel-forest-fire {
+  flex: 1.08;
+  position: relative;
+  background: #0f172a url('assets/hutan_kebakar.jpg') center center / cover no-repeat;
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Dramatic smoke and fiery overlay */
+.fire-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 20, 28, 0.82) 0%,
+    rgba(15, 23, 42, 0.75) 40%,
+    rgba(80, 20, 10, 0.88) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top forest fire alert banner */
+.forest-badge-top {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(185, 28, 28, 0.88);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(254, 202, 202, 0.4);
+  width: fit-content;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+  margin-bottom: 0.5rem;
+  cursor: default;
+}
+
+.forest-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fca5a5;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+/* Right Top Nav */
+.right-nav {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  list-style: none;
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: default;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.nav-item.active {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-pill {
+  background: rgba(220, 38, 38, 0.3);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+  padding: 0.5rem 1.35rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+  cursor: default;
+}
+
+/* --------------------------------------------------------
+   COMPOSITE STAGE: PRABOWO + MUKA PARA KORUPTOR (STATIC)
+   -------------------------------------------------------- */
+.stage-montage {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+  min-height: 460px;
+}
+
+/* President Central Arch */
+.arch-president {
+  width: 240px;
+  height: 340px;
+  border-radius: 120px 120px 85px 85px;
+  overflow: hidden;
+  position: relative;
+  background: #1e293b;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.7);
+  border: 3.5px solid rgba(255, 255, 255, 0.6);
+  z-index: 2;
+  cursor: default;
+}
+
+.arch-badge-mandate {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  color: #f8fafc;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 3;
+  cursor: default;
+}
+
+.president-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.arch-bottom-quote {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.25rem 0.5rem 0.5rem 0.5rem;
+  font-style: italic;
+  z-index: 3;
+  cursor: default;
+}
+
+/* --------------------------------------------------------
+   MUKA KORUPTOR CARDS (STATIC INFOGRAFIS)
+   -------------------------------------------------------- */
+.corruptor-card {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(239, 68, 68, 0.6);
+  border-radius: 14px;
+  padding: 0.5rem 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  max-width: 240px;
+  cursor: default;
+  user-select: none;
+}
+
+.corruptor-top-left {
+  top: 4%;
+  left: -2%;
+}
+
+.corruptor-top-right {
+  top: 6%;
+  right: -2%;
+}
+
+.corruptor-bottom-left {
+  bottom: 12%;
+  left: -3%;
+}
+
+.corruptor-bottom-right {
+  bottom: 10%;
+  right: -3%;
+}
+
+.mugshot-wrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #ef4444;
+  flex-shrink: 0;
+  background: #000000;
+  cursor: default;
+}
+
+.mugshot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+}
+
+.silhouette-wrapper {
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.silhouette-box {
+  font-size: 1.7rem;
+  cursor: default;
+}
+
+.stamp-kpk {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(220, 38, 38, 0.95);
+  color: #ffffff;
+  font-size: 0.5rem;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 0.05em;
+  padding: 1px 0;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.stamp-kpk.stamp-warning {
+  background: rgba(217, 119, 6, 0.95);
+}
+
+.mugshot-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  cursor: default;
+}
+
+.corruptor-tag {
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #f87171;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.corruptor-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.corruptor-crime {
+  font-size: 0.68rem;
+  color: #cbd5e1;
+  line-height: 1.15;
+}
+
+/* Bottom Floating Row */
+.badge-float-row {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+
+.badge-float {
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  padding: 0.5rem 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: var(--shadow-float);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  flex: 1;
+  cursor: default;
+  user-select: none;
+}
+
+.badge-float-fire {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.badge-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  cursor: default;
+}
+
+.icon-fire { background-color: rgba(239, 68, 68, 0.25); }
+.icon-emerald { background-color: rgba(16, 185, 129, 0.25); }
+
+.badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-number {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.badge-sub {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  line-height: 1.1;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ======================================================== */
+@media (max-width: 1024px) {
+  .hero-wrapper {
+    flex-direction: column-reverse;
+    height: auto;
+    min-height: auto;
+    overflow-y: auto;
+  }
+
+  .panel-left, .panel-right.panel-forest-fire {
+    padding: 2.25rem 1.75rem;
+    height: auto;
+  }
+
+  .main-heading {
+    font-size: 2.15rem;
+  }
+
+  .bgn-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-montage {
+    min-height: 480px;
+    margin: 2rem 0;
+  }
+
+  .arch-president {
+    width: 210px;
+    height: 300px;
+  }
+
+  .corruptor-card {
+    max-width: 200px;
+    padding: 0.4rem 0.55rem;
+  }
+
+  .corruptor-top-left { left: 0%; top: 2%; }
+  .corruptor-top-right { right: 0%; top: 4%; }
+  .corruptor-bottom-left { left: 0%; bottom: 6%; }
+  .corruptor-bottom-right { right: 0%; bottom: 4%; }
+}
+
+@media (max-width: 640px) {
+  .panel-left, .panel-right.panel-forest-fire {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .main-heading {
+    font-size: 1.85rem;
+  }
+
+  .bgn-leak-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bgn-profile-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .arch-president {
+    width: 180px;
+    height: 250px;
+  }
+
+  .corruptor-card {
+    position: static;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .stage-montage {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: auto;
+  }
+
+  .badge-float-row {
+    flex-direction: column;
+  }
+
+  .right-nav {
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    gap: 0.85rem;
+  }
+}
